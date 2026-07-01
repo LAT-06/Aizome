@@ -1,8 +1,8 @@
 # Aizome
 
-Aizome is IteaLab's centralized media posting tool. This repository currently
-contains the full-stack project skeleton only; social platform posting is not
-implemented.
+Aizome is IteaLab's centralized media posting tool. The current backend
+milestone provides a mock posting flow only; real social platform posting is
+not implemented.
 
 ## Structure
 
@@ -33,6 +33,17 @@ npm run dev
 
 The web application runs at `http://localhost:5173` and the API health endpoint
 is available at `http://localhost:3000/health`.
+
+## Mock Posting API
+
+`POST /api/posts` validates post content and selected platforms, dispatches to
+mock Facebook and LinkedIn adapters, and returns normalized per-platform
+results.
+
+The API currently uses an in-memory repository because the PostgreSQL data
+layer is not implemented. Stored posts are lost whenever the API process
+restarts. The endpoint has no production authentication and must not be
+connected to real credentials or exposed as a production posting service.
 
 ## Commands
 

@@ -10,6 +10,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@aizome/shared": "*",
     "express": "^5.1.0"
   },
   "devDependencies": {

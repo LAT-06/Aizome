@@ -4,9 +4,8 @@
 
 Accepted on 2026-07-01.
 
-This document records the target architecture for Aizome. It defines the
-boundaries for future implementation; no application code is introduced by
-this decision.
+This document records the target architecture for Aizome and the boundaries
+that apply to each implementation milestone.
 
 ## System Overview
 
@@ -21,7 +20,7 @@ apps/
   web/              Vue 3 frontend
   api/              Express backend
 packages/
-  shared/           Shared TypeScript types, added when needed
+  shared/           Shared TypeScript types
 ```
 
 The selected stack is:
@@ -29,7 +28,7 @@ The selected stack is:
 - `apps/web`: Vue 3, Composition API, TypeScript, and Vite
 - `apps/api`: Node.js, Express, and TypeScript
 - Database: PostgreSQL
-- `packages/shared`: future shared request, response, and domain types
+- `packages/shared`: shared request, response, and domain types
 
 The primary request path will be:
 
@@ -70,6 +69,18 @@ Vue/Vite development server
 The local harness described in `docs/harness.md` remains the behavioral
 reference for post validation, platform dispatch, persistence, and
 per-platform results.
+
+### Current Mock API Milestone
+
+`POST /api/posts` currently uses an in-memory repository because the
+PostgreSQL data layer is not ready. Records exist only for the lifetime of the
+API process and are lost on restart. The repository interface is replaceable
+so PostgreSQL persistence can be added without changing route or service
+contracts.
+
+Facebook and LinkedIn dispatch uses mock adapters exclusively. The current
+endpoint has no production authentication, authorization, retries, or audit
+trail and must not be exposed as a production posting service.
 
 ## Production Architecture
 

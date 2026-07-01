@@ -17,6 +17,17 @@ export interface PlatformPostResult {
   errorMessage?: string;
 }
 
+export interface CreatePostRequest {
+  content: string;
+  platforms: Platform[];
+}
+
+export interface CreatePostResponse {
+  postId: string;
+  status: PostStatus;
+  results: PlatformPostResult[];
+}
+
 export interface MediaPost {
   id: string;
   content: string;
