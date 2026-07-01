@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aizome-void: #ffffff;
+  --color-aizome-midnight: #f4f8f1;
+  --color-aizome-surface: #ffffff;
+  --color-aizome-surface-strong: #edf5e7;
+  --color-aizome-line: #4b5f3d;
+  --color-aizome-navy: #24301f;
+  --color-aizome-blue: #4b5f3d;
+  --color-aizome-mist: #66735d;
+  --color-aizome-cyan: #4b5f3d;
+  --color-aizome-aqua: #a7ce88;
+  --color-aizome-seafoam: #dceccb;
+  --color-aizome-wash: #f4f8f1;
+  --color-aizome-neon: #a7ce88;
+  --color-aizome-neon-strong: #8fbc6c;
+  --color-aizome-acid: #4b5f3d;
+  --color-aizome-canvas: #ffffff;
+  --color-aizome-ink: #24301f;
+  --color-itea-forest: #24301f;
+  --color-itea-evergreen: #4b5f3d;
+  --color-itea-sage: #a7ce88;
+  --shadow-itea: 8px 8px 0 0 var(--color-aizome-blue);
+  --shadow-itea-small: 5px 5px 0 0 var(--color-aizome-blue);
+  --font-sans: "Avenir Next", Avenir, "Trebuchet MS", sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--color-aizome-ink);
+    background-color: var(--color-aizome-canvas);
+  }
+
+  #app {
+    min-height: 100vh;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    color: var(--color-aizome-ink);
+    background: var(--color-aizome-neon);
+  }
+}
+
+@layer utilities {
+  .brutal-panel {
+    background: var(--color-aizome-surface);
+    border: 2px solid var(--color-aizome-blue);
+    box-shadow: var(--shadow-itea);
+  }
+
+  .brutal-panel-soft {
+    background: var(--color-aizome-surface);
+    border: 2px solid var(--color-aizome-blue);
+  }
+
+  .brutal-label {
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .brutal-shadow-sm {
+    box-shadow: var(--shadow-itea-small);
+  }
+
+  .brutal-button {
+    box-shadow: 5px 5px 0 0 var(--color-aizome-blue);
+    transition:
+      box-shadow 150ms ease,
+      transform 150ms ease,
+      background-color 150ms ease;
+  }
+
+  .brutal-button:hover:not(:disabled) {
+    box-shadow: 3px 3px 0 0 var(--color-aizome-blue);
+    transform: translate(2px, 2px);
+  }
+
+  .brutal-button:active:not(:disabled) {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brutal-button {
+      transition: none;
+    }
+  }
+}

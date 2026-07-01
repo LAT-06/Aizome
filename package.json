@@ -1,0 +1,26 @@
+{
+  "name": "aizome",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "npm@11.17.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,cyan \"npm run dev --workspace @aizome/api\" \"npm run dev --workspace @aizome/web\"",
+    "dev:api": "npm run dev --workspace @aizome/api",
+    "dev:web": "npm run dev --workspace @aizome/web",
+    "build": "npm run build --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.0"
+  }
+}
