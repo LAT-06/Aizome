@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aizome-navy: #124170;
+  --color-aizome-blue: #1a5076;
+  --color-aizome-mist: #a1dcdd;
+  --color-aizome-cyan: #1fa1b2;
+  --color-aizome-aqua: #5bbfbd;
+  --color-aizome-seafoam: #c5f2e8;
+  --color-aizome-wash: #ddf4e7;
+  --color-aizome-canvas: #fcfcfc;
+  --color-aizome-ink: #102f4a;
+  --font-sans: "Avenir Next", Avenir, "Trebuchet MS", sans-serif;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-aizome-canvas);
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}

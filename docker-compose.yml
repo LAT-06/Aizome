@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: aizome_dev
+      POSTGRES_USER: aizome
+      POSTGRES_PASSWORD: aizome
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aizome -d aizome_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - aizome_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  aizome_postgres_data:
